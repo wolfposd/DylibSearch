@@ -70,7 +70,7 @@
             break;
         case INFECTED_CHECK_INFECTED:
             cell.imageView.image = [UIImage imageNamed:@"cross.png"];
-            cell.detailTextLabel.text = [@"Contains: " stringByAppendingString:info.filePath];
+            cell.detailTextLabel.text = [@"Contains: " stringByAppendingString:info.infectionString];
             break;
         case INFECTED_CHECK_PENDING:
         default:

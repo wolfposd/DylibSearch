@@ -15,8 +15,6 @@
 
 +(NSArray*) findKeyWords
 {
-    
-    
     NSString* path = [[NSBundle mainBundle] pathForResource:@"search"
                                                      ofType:@"txt"];
     
@@ -28,11 +26,8 @@
         NSLog(@"%@", error.description);
     }
     
-    
     NSArray *listItems = [keywords componentsSeparatedByString:@"\n"];
-    
     return listItems;
-    
 }
 
 
@@ -55,31 +50,33 @@
     {
         for (NSString *item in items)
         {
-            NSString* itemPath = [dir stringByAppendingString:item];
-            
-            NSData* contents = [NSData dataWithContentsOfFile:itemPath];
-            
-            
-            BOOL infected = NO;
-            NSString* infection = @"";
-            
-            for (NSString* singleKeyWord in keyWords)
+            if([item rangeOfString:@".dylib"].location != NSNotFound)
             {
-                NSRange range =  [contents rangeOfData:[singleKeyWord dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions range:NSMakeRange(0,[contents length])];
+                NSString* itemPath = [dir stringByAppendingString:item];
                 
-                if(range.location != NSNotFound)
+                NSData* contents = [NSData dataWithContentsOfFile:itemPath];
+                
+                
+                BOOL infected = NO;
+                NSString* infection = @"";
+                
+                for (NSString* singleKeyWord in keyWords)
                 {
-                    infected = YES;
-                    infection = singleKeyWord;
-                    break;
+                    NSRange range =  [contents rangeOfData:[singleKeyWord dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions range:NSMakeRange(0,[contents length])];
+                    
+                    if(range.location != NSNotFound)
+                    {
+                        infected = YES;
+                        infection = singleKeyWord;
+                        break;
+                    }
                 }
-            }
-            
-            FileInfo* inf = [FileInfo info:item path:infection infected:infected ? INFECTED_CHECK_INFECTED : INFECTED_CHECK_SAFE];
-            
-            
-            [result addObject:inf];
-            
+                
+                FileInfo* inf = [FileInfo info:item infectionString:infection infected:infected ? INFECTED_CHECK_INFECTED : INFECTED_CHECK_SAFE];
+                
+                
+                [result addObject:inf];
+            } 
         }
     }
     

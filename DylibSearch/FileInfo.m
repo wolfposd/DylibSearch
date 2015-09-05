@@ -11,11 +11,11 @@
 @implementation FileInfo
 
 
-+(FileInfo*) info:(NSString*) name path:(NSString*) path infected:(int) infected
++(FileInfo*) info:(NSString*) name infectionString:(NSString*) infString infected:(int) infected;
 {
     FileInfo* f = [FileInfo new];
     f.fileName = name;
-    f.filePath = path;
+    f.infectionString = infString;
     f.infected = infected;
     return f;
 }

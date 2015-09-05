@@ -17,10 +17,18 @@
 @interface FileInfo : NSObject
 
 @property (nonatomic,retain) NSString* fileName;
-@property (nonatomic,retain) NSString* filePath;
+@property (nonatomic,retain) NSString* infectionString;
 @property (nonatomic) int infected;
 
-
-+(FileInfo*) info:(NSString*) name path:(NSString*) path infected:(int) infected;
+/**
+ *  Creates a fileinfo object
+ *
+ *  @param name      name of this file
+ *  @param infString the infection detail, or empty string
+ *  @param infected  PENDING, SAFE or INFECTED
+ *
+ *  @return obj
+ */
++(FileInfo*) info:(NSString*) name infectionString:(NSString*) infString infected:(int) infected;
 
 @end

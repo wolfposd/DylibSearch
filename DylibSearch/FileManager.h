@@ -10,9 +10,14 @@
 
 @interface FileManager : NSObject
 
-
+/**
+ * Returns the list of keywords to loook for in files
+ */
 +(NSArray*) findKeyWords;
 
+/** 
+ * Returns a list of FileInfo-objects. Thes objects have been scanned for known Strings
+ */
 +(NSMutableArray*) findFiles;
 
 @end
