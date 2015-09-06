@@ -23,7 +23,7 @@
     
     if(error)
     {
-        NSLog(@"%@", error.description);
+        NSLog(@"%@", error.description); // this shouldnt happen...
     }
     
     NSArray *listItems = [keywords componentsSeparatedByString:@"\n"];
@@ -50,33 +50,44 @@
     {
         for (NSString *item in items)
         {
-            if([item rangeOfString:@".dylib"].location != NSNotFound)
+            if([item rangeOfString:@".dylib"].location != NSNotFound) // only scan dylib files
             {
                 NSString* itemPath = [dir stringByAppendingString:item];
                 
                 NSData* contents = [NSData dataWithContentsOfFile:itemPath];
                 
                 
-                BOOL infected = NO;
-                NSString* infection = @"";
-                
-                for (NSString* singleKeyWord in keyWords)
+                // Some tweaks leave symlinks behind that do not point to a file anymore, output "unknown" for now
+                if(!contents || contents.length == 0)
                 {
-                    NSRange range =  [contents rangeOfData:[singleKeyWord dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions range:NSMakeRange(0,[contents length])];
+                    FileInfo* inf = [FileInfo info:item infectionString:@"Unknown" infected:INFECTED_CHECK_UNKNOWN];
+                    [result addObject:inf];
+                }
+                else // the file actually contains data, start to scan
+                {
+                    BOOL infected = NO;
+                    NSString* infection = @"";
                     
-                    if(range.location != NSNotFound)
+                    for (NSString* singleKeyWord in keyWords) // check every keyword from search.txt
                     {
-                        infected = YES;
-                        infection = singleKeyWord;
-                        break;
+                        NSRange range =  [contents rangeOfData:[singleKeyWord dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions range:NSMakeRange(0,[contents length])];
+                        
+                        if(range.location != NSNotFound)
+                        {
+                            infected = YES;
+                            infection = singleKeyWord;
+                            break;
+                        }
                     }
+                    
+                    FileInfo* inf = [FileInfo info:item infectionString:infection
+                                          infected:infected ? INFECTED_CHECK_INFECTED : INFECTED_CHECK_SAFE];
+                    
+                    
+                    [result addObject:inf];
                 }
                 
-                FileInfo* inf = [FileInfo info:item infectionString:infection infected:infected ? INFECTED_CHECK_INFECTED : INFECTED_CHECK_SAFE];
-                
-                
-                [result addObject:inf];
-            } 
+            }
         }
     }
     

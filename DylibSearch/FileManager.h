@@ -16,7 +16,7 @@
 +(NSArray*) findKeyWords;
 
 /** 
- * Returns a list of FileInfo-objects. Thes objects have been scanned for known Strings
+ * Returns a list of FileInfo-objects. These objects have been scanned for known Strings
  */
 +(NSMutableArray*) findFiles;
 

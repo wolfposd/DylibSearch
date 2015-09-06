@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define INFECTED_CHECK_PENDING 0
+#define INFECTED_CHECK_UNKNOWN 0
 #define INFECTED_CHECK_SAFE 1
 #define INFECTED_CHECK_INFECTED 2
 

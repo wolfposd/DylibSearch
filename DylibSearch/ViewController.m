@@ -15,26 +15,16 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-}
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     SearchTableViewController* s = [[SearchTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
     
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:s] animated:NO completion:^(){}];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:s]
+                       animated:NO completion:^(){}];
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
