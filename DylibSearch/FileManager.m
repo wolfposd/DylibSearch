@@ -13,28 +13,28 @@
 @implementation FileManager
 
 
-+(NSArray*) findKeyWords
++(NSDictionary*) findKeyWords
 {
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"search"
-                                                     ofType:@"txt"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"search" ofType:@"txt"];
     
     NSError* error = nil;
-    NSString* keywords = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    NSData* keywords = [NSData dataWithContentsOfFile:path];
     
     if(error)
     {
         NSLog(@"%@", error.description); // this shouldnt happen...
     }
     
-    NSArray *listItems = [keywords componentsSeparatedByString:@"\n"];
-    return listItems;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:keywords options:kNilOptions error:&error];
+    
+    return dict;
 }
 
 
 
 +(NSMutableArray*) findFiles
 {
-    NSArray* keyWords = [self findKeyWords];
+    NSDictionary* keyWords = [self findKeyWords];
     
     NSMutableArray* result = [NSMutableArray new];
     
@@ -68,14 +68,17 @@
                     BOOL infected = NO;
                     NSString* infection = @"";
                     
+                    // use the dictionary-keys as search keys
+                    // values are the name of malware/adware
                     for (NSString* singleKeyWord in keyWords) // check every keyword from search.txt
                     {
-                        NSRange range =  [contents rangeOfData:[singleKeyWord dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions range:NSMakeRange(0,[contents length])];
+                        NSRange range =  [contents rangeOfData:[singleKeyWord dataUsingEncoding:NSUTF8StringEncoding]
+                                                       options:kNilOptions range:NSMakeRange(0,[contents length])];
                         
                         if(range.location != NSNotFound)
                         {
                             infected = YES;
-                            infection = singleKeyWord;
+                            infection = keyWords[singleKeyWord];
                             break;
                         }
                     }

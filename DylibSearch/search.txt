@@ -1,4 +1,11 @@
-wushidou
-gotoip4
-bamu
-getHanzi
+{
+"wushidou": "keyraider.malware",
+"gotoip4": "keyraider.malware",
+"bamu": "keyraider.malware",
+"getHanzi": "keyraider.malware",
+"f.adusapp.info": "muda.adware",
+"f.umscape.com": "muda.adware",
+"a.iosappus.info": "muda.adware",
+"a.iosappmm.info": "muda.adware",
+"iosapi.iosappua.info": "muda.adware"
+}

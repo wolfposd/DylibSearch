@@ -13,7 +13,7 @@
 /**
  * Returns the list of keywords to loook for in files
  */
-+(NSArray*) findKeyWords;
++(NSDictionary*) findKeyWords;
 
 /** 
  * Returns a list of FileInfo-objects. These objects have been scanned for known Strings
