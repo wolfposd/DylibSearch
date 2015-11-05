@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Sysout.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,3 +16,7 @@
 
 @end
 
+
+
+@interface SysoutToStd :NSObject <SysoutObserver>
+@end

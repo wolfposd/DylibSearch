@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		796DB8A81BEB609F00A79F6D /* AppScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DB8A71BEB609F00A79F6D /* AppScanner.m */; settings = {ASSET_TAGS = (); }; };
+		796DB8AB1BEB69C700A79F6D /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DB8AA1BEB69C700A79F6D /* BorderButton.m */; settings = {ASSET_TAGS = (); }; };
+		796DB8AE1BEB6A3700A79F6D /* OutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DB8AD1BEB6A3700A79F6D /* OutputViewController.m */; settings = {ASSET_TAGS = (); }; };
+		796DB8B11BEB6AE400A79F6D /* Sysout.m in Sources */ = {isa = PBXBuildFile; fileRef = 796DB8B01BEB6AE400A79F6D /* Sysout.m */; settings = {ASSET_TAGS = (); }; };
 		798A2AE21B99DD7D00F4131F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 798A2AE11B99DD7D00F4131F /* main.m */; };
 		798A2AE51B99DD7D00F4131F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 798A2AE41B99DD7D00F4131F /* AppDelegate.m */; };
 		798A2AE81B99DD7D00F4131F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798A2AE71B99DD7D00F4131F /* ViewController.m */; };
@@ -34,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		796DB8A61BEB609F00A79F6D /* AppScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppScanner.h; sourceTree = "<group>"; };
+		796DB8A71BEB609F00A79F6D /* AppScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppScanner.m; sourceTree = "<group>"; };
+		796DB8A91BEB69C700A79F6D /* BorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderButton.h; sourceTree = "<group>"; };
+		796DB8AA1BEB69C700A79F6D /* BorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderButton.m; sourceTree = "<group>"; };
+		796DB8AC1BEB6A3700A79F6D /* OutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputViewController.h; sourceTree = "<group>"; };
+		796DB8AD1BEB6A3700A79F6D /* OutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputViewController.m; sourceTree = "<group>"; };
+		796DB8AF1BEB6AE400A79F6D /* Sysout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sysout.h; sourceTree = "<group>"; };
+		796DB8B01BEB6AE400A79F6D /* Sysout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sysout.m; sourceTree = "<group>"; };
 		798A2ADC1B99DD7D00F4131F /* DylibSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DylibSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		798A2AE01B99DD7D00F4131F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		798A2AE11B99DD7D00F4131F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -105,6 +117,8 @@
 				798A2AE41B99DD7D00F4131F /* AppDelegate.m */,
 				798A2AE61B99DD7D00F4131F /* ViewController.h */,
 				798A2AE71B99DD7D00F4131F /* ViewController.m */,
+				796DB8AC1BEB6A3700A79F6D /* OutputViewController.h */,
+				796DB8AD1BEB6A3700A79F6D /* OutputViewController.m */,
 				798A2AE91B99DD7D00F4131F /* Main.storyboard */,
 				798A2AEC1B99DD7D00F4131F /* Images.xcassets */,
 				798A2AEE1B99DD7D00F4131F /* LaunchScreen.xib */,
@@ -116,6 +130,12 @@
 				798A2B161B99E3F100F4131F /* FileManager.h */,
 				798A2B171B99E3F100F4131F /* FileManager.m */,
 				798A2B191B99E8FB00F4131F /* search.txt */,
+				796DB8A61BEB609F00A79F6D /* AppScanner.h */,
+				796DB8A71BEB609F00A79F6D /* AppScanner.m */,
+				796DB8A91BEB69C700A79F6D /* BorderButton.h */,
+				796DB8AA1BEB69C700A79F6D /* BorderButton.m */,
+				796DB8AF1BEB6AE400A79F6D /* Sysout.h */,
+				796DB8B01BEB6AE400A79F6D /* Sysout.m */,
 			);
 			path = DylibSearch;
 			sourceTree = "<group>";
@@ -252,8 +272,12 @@
 			files = (
 				798A2AE81B99DD7D00F4131F /* ViewController.m in Sources */,
 				798A2AE51B99DD7D00F4131F /* AppDelegate.m in Sources */,
+				796DB8AE1BEB6A3700A79F6D /* OutputViewController.m in Sources */,
 				798A2B0F1B99DF5000F4131F /* FileInfo.m in Sources */,
+				796DB8AB1BEB69C700A79F6D /* BorderButton.m in Sources */,
 				798A2AE21B99DD7D00F4131F /* main.m in Sources */,
+				796DB8B11BEB6AE400A79F6D /* Sysout.m in Sources */,
+				796DB8A81BEB609F00A79F6D /* AppScanner.m in Sources */,
 				798A2B071B99DDB100F4131F /* SearchTableViewController.m in Sources */,
 				798A2B181B99E3F100F4131F /* FileManager.m in Sources */,
 			);

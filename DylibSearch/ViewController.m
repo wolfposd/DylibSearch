@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SearchTableViewController.h"
+#import "OutputViewController.h"
 
 @interface ViewController ()
 
@@ -18,13 +19,24 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+}
+- (IBAction)startSearchingDylibsTouchUpInside:(id)sender
+{
     SearchTableViewController* s = [[SearchTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:s]
-                       animated:NO completion:^(){}];
+    [self.navigationController pushViewController:s animated:YES];
 }
 
+- (IBAction)debugStuffTouchUpInside:(id)sender
+{
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController* s = [sb instantiateViewControllerWithIdentifier:@"OutputViewController"];
+    
+    [self.navigationController pushViewController:s animated:YES];
+}
 
 
 @end

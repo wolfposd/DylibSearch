@@ -8,15 +8,34 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
+@property (nonatomic,retain) id sysout;
+
 @end
+
+
+
+@implementation SysoutToStd
+
+- (void) print:(NSString*) stringToPrint
+{
+    NSLog(@"%@", stringToPrint);
+}
+
+@end
+
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.sysout = [Sysout sharedManager];
+    [self.sysout addObserver:[SysoutToStd new]];
+    
     return YES;
 }
 
